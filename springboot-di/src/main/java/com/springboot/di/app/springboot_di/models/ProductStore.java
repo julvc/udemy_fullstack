@@ -1,6 +1,6 @@
 package com.springboot.di.app.springboot_di.models;
 
-public class ProductStore {
+public class ProductStore implements Cloneable{
 
     private Long id;
     private String name;
@@ -32,6 +32,15 @@ public class ProductStore {
     }
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    @Override
+    public Object clone(){
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new ProductStore(id, name, price);
+        }
     }
 
     
