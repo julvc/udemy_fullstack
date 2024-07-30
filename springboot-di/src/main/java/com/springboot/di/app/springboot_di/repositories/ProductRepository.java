@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.springboot.di.app.springboot_di.models.ProductStore;
 
-public class ProductRepository {
+public class ProductRepository implements IProducRepository{
 
     private List<ProductStore> data;
     

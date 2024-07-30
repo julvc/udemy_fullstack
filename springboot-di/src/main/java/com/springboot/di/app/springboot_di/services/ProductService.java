@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import com.springboot.di.app.springboot_di.models.ProductStore;
 import com.springboot.di.app.springboot_di.repositories.ProductRepository;
 
-public class ProductService {
+public class ProductService implements IProductService{
 
     private ProductRepository repository = new ProductRepository();
 
