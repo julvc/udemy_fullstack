@@ -3,9 +3,12 @@ package com.springboot.di.app.springboot_di.repositories;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Primary;
 import com.springboot.di.app.springboot_di.models.ProductStore;
 
-public class ProductRepository implements IProducRepository{
+@Repository
+public class ProductRepository implements IProductRepository{
 
     private List<ProductStore> data;
     

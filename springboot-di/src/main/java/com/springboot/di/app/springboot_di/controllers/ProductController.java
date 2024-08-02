@@ -3,10 +3,11 @@ package com.springboot.di.app.springboot_di.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.di.app.springboot_di.models.ProductStore;
-import com.springboot.di.app.springboot_di.services.ProductService;
+import com.springboot.di.app.springboot_di.services.IProductService;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/apiDi")
 public class ProductController {
 
-    private ProductService service = new ProductService();
+    @Autowired
+    private IProductService service;
 
     @GetMapping
     public List<ProductStore> list() {

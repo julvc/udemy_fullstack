@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Pendrive nuevo 128gb",
+        "price": 3570
+    },
+    {
+        "id": 2,
+        "name": "Cpu Intel X989",
+        "price": 535
+    },
+    {
+        "id": 3,
+        "name": "Keyboard Razer LL",
+        "price": 35
+    },
+    {
+        "id": 4,
+        "name": "Headphones Sony",
+        "price": 35
+    }
+]
