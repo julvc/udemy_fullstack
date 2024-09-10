@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ConnectionDB",
+            "request": "launch",
+            "mainClass": "zone_fit.database.ConnectionDB",
+            "projectName": "zona_fit"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SpringbootWebApplication<springboot-web>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

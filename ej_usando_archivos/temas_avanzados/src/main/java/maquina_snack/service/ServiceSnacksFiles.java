@@ -87,7 +87,7 @@ public class ServiceSnacksFiles implements IServiceSnack{
             List<String> lines = Files.readAllLines(Paths.get(NOMBRE_ARCHIVO));
             for (String line : lines) {
                 String[] lineSnack = line.split(",");
-                var idSnack = lineSnack[0];
+                //var idSnack = lineSnack[0];
                 var name = lineSnack[1];
                 var price = Double.parseDouble(lineSnack[2]);
                 var snack = new Snack(name, price);
