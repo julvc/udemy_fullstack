@@ -1,0 +1,6 @@
+1,Pepsi,150.0
+2,Score,150.0
+3,Lays,200.0
+4,Doritos,250.0
+5,Chocolate,30.0
+6,Nachos,500.0
