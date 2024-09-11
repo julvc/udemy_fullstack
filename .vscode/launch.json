@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClientDAO",
+            "request": "launch",
+            "mainClass": "zone_fit.data.ClientDAO",
+            "projectName": "zona_fit"
+        },
+        {
+            "type": "java",
             "name": "ConnectionDB",
             "request": "launch",
             "mainClass": "zone_fit.database.ConnectionDB",
