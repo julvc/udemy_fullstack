@@ -96,7 +96,25 @@ public class ZoneFitApp {
                 } else {
                     System.out.println("No se pudo modificar cliente " + client);
                 }
-            }  
+            } 
+            case 5 -> {
+                System.out.println("--- Eliminar cliente ---");
+                System.out.println("Id cliente :");
+                var idClient = Integer.parseInt(console.nextLine());
+                var client = new Client(idClient);
+                var deleted = clienteDAO.deleteClient(client);
+                if (deleted) {
+                    System.out.println("Cliente eliminado correctamente " + client);
+                }else{
+                    System.out.println("No se pudo eliminar cliente " + client);
+                }
+            }
+            case 6 ->{
+                System.out.println("Hasta pronto");
+                output = true;
+            }
+
+            default -> System.out.println("Opcion no reconocida " + option);
         }
         return output;
     }
