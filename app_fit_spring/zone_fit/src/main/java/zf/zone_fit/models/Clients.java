@@ -16,12 +16,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Client {
+public class Clients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String lastName;
-    private Integer memberId;
+    private String lastname;
+    private String memberid;
 }
