@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import zone_fit.data.ClientDAO;
 import zone_fit.data.IClientDAO;
+import zone_fit.dom.Client;
 
 public class ZoneFitApp {
 
@@ -51,6 +52,17 @@ public class ZoneFitApp {
                 var clients = clienteDAO.listClients();
                 clients.forEach(System.out::println);
                 }
+            case 2 -> {
+                System.out.println("--- Introduce id del cliente a buscar ---");
+                var idClient = Integer.parseInt(console.nextLine());
+                var client = new Client(idClient);
+                var clientFound = clienteDAO.searchClientById(client);
+                if (clientFound) {
+                    System.out.println("Cliente encontrado " + client);
+                } else {
+                    System.out.println("Cliente No encontrado " + client);
+                }
+            }
         }
         return output;
     }
