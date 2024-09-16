@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ZoneFitApp",
+            "request": "launch",
+            "mainClass": "zone_fit.presentation.ZoneFitApp",
+            "projectName": "zona_fit"
+        },
+        {
+            "type": "java",
+            "name": "ClientDAO",
+            "request": "launch",
+            "mainClass": "zone_fit.data.ClientDAO",
+            "projectName": "zona_fit"
+        },
+        {
+            "type": "java",
+            "name": "ConnectionDB",
+            "request": "launch",
+            "mainClass": "zone_fit.database.ConnectionDB",
+            "projectName": "zona_fit"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SpringbootWebApplication<springboot-web>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

@@ -41,7 +41,6 @@ public class RequestParamsController {
         try {
             code = Integer.parseInt(request.getParameter("code"));
         } catch (NumberFormatException e) {
-            // TODO: handle exception
         }
         ParamsDto params = new ParamsDto();
         params.setMessage(request.getParameter("message"));

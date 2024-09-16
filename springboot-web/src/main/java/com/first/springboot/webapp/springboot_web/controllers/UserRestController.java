@@ -1,10 +1,7 @@
 package com.first.springboot.webapp.springboot_web.controllers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +11,6 @@ import com.first.springboot.webapp.springboot_web.models.User;
 import com.first.springboot.webapp.springboot_web.models.dto.UserDto;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
