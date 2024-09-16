@@ -1,4 +1,7 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "editor.fontFamily": "'CaskaydiaMono Nerd Font'",
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 16
 }

@@ -98,8 +98,28 @@ public class ClientDAO implements IClientDAO{
 
     @Override
     public boolean modifyClient(Client client) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modifyClient'");
+        PreparedStatement ps;
+        Connection con = getDBConnection();
+        var sql = "UPDATE clients SET name=?, lastname=?, memberId=? WHERE id=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, client.getName());
+            ps.setString(2, client.getLastname());
+            ps.setInt(3, client.getMemberId());
+            ps.setInt(4, client.getId());
+            ps.execute();
+            return true;
+
+        } catch (Exception e) {
+            System.out.println("Error al momento de actualizar cliente " + e.getMessage());
+        }finally{
+            try {
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexion BBDD " + e.getMessage());
+            }
+        }
+        return false;
     }
 
     @Override
@@ -117,13 +137,37 @@ public class ClientDAO implements IClientDAO{
         // clients.forEach(System.out::println);
 
         //Buscar por ID
-        var clientOne = new Client(2);
-        System.out.println("Cliente antes de la busqueda " + clientOne);
-        var foundIt = clienteDAO.searchClientById(clientOne);
-        if (foundIt) {
-            System.out.println("Cliente encontrado: " + clientOne);
+        //var clientOne = new Client(2);
+        //System.out.println("Cliente antes de la busqueda " + clientOne);
+        //var foundIt = clienteDAO.searchClientById(clientOne);
+        //if (foundIt) {
+        //    System.out.println("Cliente encontrado: " + clientOne);
+        //} else {
+        //    System.out.println("No se encontro Cliente : " + clientOne.getId());
+        //}
+
+        //Agregar Cliente
+        //var newClient = new Client("Satoru", "Gojo", 101);
+        //var addClient = clienteDAO.addClient(newClient);
+        //if (addClient) {
+        //    System.out.println("Cliente agregado: " + newClient);
+        //} else {
+        //    System.out.println("No se agrego el cliente: " + newClient);
+        //}
+        //System.out.println("***Listado de clientes***");
+        //var clients = clienteDAO.listClients();
+        //clients.forEach(System.out::println);
+
+        //Modificar cliente
+        var modifyClient = new Client(5,"Son","Goku", 2222);
+        var modified = clienteDAO.modifyClient(modifyClient);
+        if (modified) {
+            System.out.println("Cliente modificado " + modifyClient);
         } else {
-            System.out.println("No se encontro Cliente : " + clientOne.getId());
+            System.out.println("Cliente no modificado " + modifyClient);
         }
+        System.out.println("***Listado de clientes***");
+        var clients = clienteDAO.listClients();
+        clients.forEach(System.out::println);
     }
 }
