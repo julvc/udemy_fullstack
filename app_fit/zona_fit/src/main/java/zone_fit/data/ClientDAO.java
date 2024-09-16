@@ -124,8 +124,25 @@ public class ClientDAO implements IClientDAO{
 
     @Override
     public boolean deleteClient(Client client) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteClient'");
+        PreparedStatement ps;
+        Connection con = getDBConnection();
+        String sql = "DELETE FROM clients WHERE id=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, client.getId());
+            ps.execute();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al eliminar cliente " + e.getMessage());
+        }finally{
+            try {
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexion BBDD " + e.getMessage());
+            }
+        }
+
+        return false;
     }
 
     public static void main(String[] args) {
@@ -159,13 +176,26 @@ public class ClientDAO implements IClientDAO{
         //clients.forEach(System.out::println);
 
         //Modificar cliente
-        var modifyClient = new Client(5,"Son","Goku", 2222);
-        var modified = clienteDAO.modifyClient(modifyClient);
-        if (modified) {
-            System.out.println("Cliente modificado " + modifyClient);
+        //var modifyClient = new Client(5,"Son","Goku", 2222);
+        //var modified = clienteDAO.modifyClient(modifyClient);
+        //if (modified) {
+        //    System.out.println("Cliente modificado " + modifyClient);
+        //} else {
+        //    System.out.println("Cliente no modificado " + modifyClient);
+        //}
+        //System.out.println("***Listado de clientes***");
+        //var clients = clienteDAO.listClients();
+        //clients.forEach(System.out::println);
+
+        //Eliminar cliente
+        var deleteClient = new Client(5);
+        var deleted = clienteDAO.deleteClient(deleteClient);
+        if (deleted) {
+            System.out.println("Cliente eliminado " + deleteClient);
         } else {
-            System.out.println("Cliente no modificado " + modifyClient);
+            System.out.println("No se pudo eliminar Cliente " + deleteClient);
         }
+
         System.out.println("***Listado de clientes***");
         var clients = clienteDAO.listClients();
         clients.forEach(System.out::println);
