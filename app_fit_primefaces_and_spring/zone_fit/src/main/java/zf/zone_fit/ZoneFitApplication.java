@@ -87,7 +87,7 @@ public class ZoneFitApplication implements CommandLineRunner{
 				var client = new Clients();
 				client.setName(name);
 				client.setLastname(lastname);
-				client.setMemberid(memberid);
+				client.setMemberid(Integer.parseInt(memberid));
 				clientService.saveClient(client);
 				logger.info("Cliente agregado con exito : " + client + "\n");
 			}
@@ -105,7 +105,7 @@ public class ZoneFitApplication implements CommandLineRunner{
 					var memberid = console.nextLine();
 					client.setName(name);
 					client.setLastname(lastname);
-					client.setMemberid(memberid);
+					client.setMemberid(Integer.parseInt(memberid));
 					clientService.saveClient(client);
 					logger.info("Cliente modificado con exito : " + client + "\n");
 				} else {

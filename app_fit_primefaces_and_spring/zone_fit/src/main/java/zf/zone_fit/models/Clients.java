@@ -23,5 +23,5 @@ public class Clients {
     private Integer id;
     private String name;
     private String lastname;
-    private String memberid;
+    private Integer memberid;
 }

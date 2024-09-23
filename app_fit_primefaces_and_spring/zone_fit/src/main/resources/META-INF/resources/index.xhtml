@@ -16,8 +16,12 @@
             <div class="card">
                 <p:menubar>
                     <p:menuitem value="Inicio" icon="pi pi-fw pi-user" 
-                    update=":form-clients:clients-table"
-                    actionListener="#{indexController.loadData}"/>
+                                update=":form-clients:clients-table"
+                                actionListener="#{indexController.loadData}"/>
+                    <p:menuitem value="Nuevo Cliente" icon="pi pi-fw pi-plus"
+                                actionListener="#{indexController.addClient}"
+                                update=":form-modal:clients-window"
+                                oncomplete="PF('windowModalClient').show()"/>
                 </p:menubar>
             </div>
             <div class="card">
@@ -50,11 +54,66 @@
                         <h:outputText value="#{clients.memberid}" />
                     </p:column>
 
+                    <p:column>
+                        <p:commandButton value="Editar" icon="pi pi-pencil"
+                                        update=":form-modal:clients-window"
+                                        process="@this"
+                                        oncomplete="PF('windowModalClient').show()"
+                                        class="ui-button-primary"
+                                        style="margin-right:  .5rem;">
+                        <f:setPropertyActionListener value="#{clients}" target="#{indexController.selectedClient}" />
+                        <p:resetInput target=":form-modal:clients-window" />
+                        </p:commandButton>
+
+                        <p:commandButton value="Eliminar" class="ui-button-danger"
+                                        icon="pi pi-trash"
+                                        process="@this"
+                                        oncomplete="PF('deleteClientWindow').show()">
+                        <f:setPropertyActionListener value="#{clients}" target="#{indexController.selectedClient}" />
+                        </p:commandButton>
+                    </p:column>
                 </p:dataTable>
             </div>
         </h:form>
+
+        <h:form id="form-modal">
+            <p:dialog header="Detalle Cliente" showEffect="fade" 
+                        modal="true" widgetVar="windowModalClient" resposive="true">
+                        <p:outputPanel id="clients-window" class="ui-fluid">
+                            <div class="field">
+                            <p:outputLabel for="name">Nombre</p:outputLabel>
+                            <p:inputText id="name" value="#{indexController.selectedClient.name}" required="true"/>
+                            </div>
+                            <div class="field">
+                            <p:outputLabel for="lastname">Apellido</p:outputLabel>
+                            <p:inputText id="lastname" value="#{indexController.selectedClient.lastname}"/>
+                            </div>
+                            <div class="field">
+                            <p:outputLabel for="memberid">Membresía</p:outputLabel>
+                            <p:inputNumber id="memberid" value="#{indexController.selectedClient.memberid}" required="true"/>
+                            </div>
+                            </p:outputPanel>      
+                <f:facet name="footer">
+                    <p:commandButton value="Guardar" icon="pi pi-check"
+                                    process="clients-window @this" 
+                                    actionListener="#{indexController.saveClient}"/>
+                    <p:commandButton value="Cancelar" icon="pi pi-times"
+                                    onclick="PF('windowModalClient').hide()"
+                                    class="ui-button-secondary" type="button" />
+                </f:facet>
+            </p:dialog>
+            <p:confirmDialog widgetVar="deleteClientWindow"
+            showEffect="fade" width="300" message="¿Eliminar el cliente?"
+            header="Eliminar Cliente" severity="warn">
+                <p:commandButton value="Si" icon="pi pi-check"
+                process="@this"
+                actionListener="#{indexController.deleteClient}"
+                oncomplete="PF('deleteClientWindow').hide()" />
+                <p:commandButton value="No" icon="pi pi-times"
+                styleClass="ui-button-secondary"                
+                oncomplete="PF('deleteClientWindow').hide()" />
+            </p:confirmDialog>
+        </h:form>
     </div>
-
-
 </h:body>
 </h:html>
