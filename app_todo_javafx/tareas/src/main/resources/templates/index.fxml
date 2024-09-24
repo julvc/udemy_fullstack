@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="388.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="todo.tareas.controller.IndexController">
+   <children>
+      <Label layoutX="240.0" layoutY="25.0" text="Sistema de Tareas" textFill="#2f20da">
+         <font>
+            <Font name="Fira Code Bold" size="25.0" />
+         </font></Label>
+      <TableView fx:id="todoTable" layoutX="276.0" layoutY="79.0" onMouseClicked="#loadTodoForm" prefHeight="202.0" prefWidth="447.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nameTodoColumn" prefWidth="75.0" text="Tarea" />
+            <TableColumn fx:id="responsableColumn" prefWidth="75.0" text="Responsable" />
+            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Estatus" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="14.0" layoutY="79.0" prefHeight="202.0" prefWidth="253.0">
+         <children>
+            <Label layoutX="16.0" layoutY="7.0" text="Tarea" textFill="#3d7db1">
+               <font>
+                  <Font name="System Bold" size="12.218181610107422" />
+               </font></Label>
+            <Label layoutX="15.0" layoutY="69.0" text="Responsable" textFill="#3d7db1">
+               <font>
+                  <Font name="System Bold" size="12.218181610107422" />
+               </font></Label>
+            <Label layoutX="15.0" layoutY="131.0" text="Estatus" textFill="#3d7db1">
+               <font>
+                  <Font name="System Bold" size="12.218181610107422" />
+               </font></Label>
+            <TextField fx:id="txtlblTodo" layoutX="15.0" layoutY="31.0" prefHeight="26.0" prefWidth="193.0" />
+            <TextField fx:id="txtlblResponsable" layoutX="15.0" layoutY="91.0" prefHeight="26.0" prefWidth="194.0" />
+            <TextField fx:id="txtlblStatus" layoutX="15.0" layoutY="159.0" prefHeight="26.0" prefWidth="194.0" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="23.0" layoutY="297.0" prefHeight="61.0" prefWidth="694.0">
+         <children>
+            <Button fx:id="btnAdd" layoutX="26.0" layoutY="18.0" mnemonicParsing="false" onAction="#addTodo" prefWidth="115.0" style="-fx-background-color: #1d3557;" text="Agregar" textFill="#c2d4bc">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnModify" layoutX="170.0" layoutY="18.0" mnemonicParsing="false" onAction="#modifyTodo" prefWidth="115.0" style="-fx-background-color: #1d3557;" text="Modificar" textFill="#c2d4bc">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font></Button>
+            <Button fx:id="btnDelete" layoutX="326.0" layoutY="20.0" mnemonicParsing="false" onAction="#deleteTodo" prefWidth="115.0" style="-fx-background-color: #e63946;" text="Eliminar" textFill="#c2d4bc">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font></Button>
+            <Button fx:id="btnClear" layoutX="512.0" layoutY="18.0" mnemonicParsing="false" onAction="#clearForm" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #ffd60a;" text="Limpiar">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font></Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
