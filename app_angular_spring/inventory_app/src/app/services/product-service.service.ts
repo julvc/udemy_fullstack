@@ -6,12 +6,12 @@ import { Product } from '../models/product';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductServiceService {
-  private urlBase = "http://localhost:8080/inventory-app/products"
+export class ProductService {
+  private urlBase = "http://localhost:8080/inventory-app/products";
 
-  constructor(private clientHttp: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   obtainProductList(): Observable<Product[]>{
-    return this.clientHttp.get<Product[]>(this.urlBase);
+    return this.http.get<Product[]>(this.urlBase);
   }
 }
