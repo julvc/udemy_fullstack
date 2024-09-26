@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import sys.inv.models.Product;
 import sys.inv.services.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -31,6 +34,13 @@ public class ProductController {
         products.forEach((product -> logger.info(product.toString())));
         return products;
     }
+
+    @PostMapping("/products")
+    public Product addProduct(@RequestBody Product product) {
+        logger.info("Producto a agregar: " + product);
+        return this.productService.addProduct(product);
+    }
+    
 
     
     

@@ -8,6 +8,6 @@ public interface IProductService {
 
     public List<Product> listProducts();
     public Product searchById(Integer id);
-    public void saveProduct(Product product);
+    public Product addProduct(Product product);
     public void deleteProduct(Integer id);
 }
