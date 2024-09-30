@@ -18,8 +18,8 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    String name;
-    String department;
-    Double salary;
+    public Integer id;
+    public String name;
+    public String department;
+    public Double salary;
 }
